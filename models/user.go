@@ -15,7 +15,9 @@ type (
 		PubK      string `json:"pubKey" bson:"pubKey"`
 		PrivK     string `json:"privKey" bson:"privKey"`
 		AuthC     string `json:"authCode" bson:"authCode"`
-		Data      string `json:"data" bson:"data"`
+		S1Data    string `json:"s1data" bson:"s1data"`
+		S2Data    string `json:"s2data" bson:"s2data"`
+		Cert      string `json:"cert" bson:"cert"`
 		S1submit  bool   `json:"s1submit" bson:"s1submit"`
 		S2submit  bool   `json:"s2submit" bson:"s2submit"`
 		Dirty     bool   `json:"dirty" bson:"dirty"`
@@ -24,6 +26,7 @@ type (
 )
 
 type UserPublicKey struct {
+	gorm.Model
 	Id   string `json:"_id" bson:"_id" gorm:"unique"`
 	PubK string `json:"pubKey" bson:"pubKey"`
 }
@@ -49,7 +52,6 @@ type TypeUserFirst struct {
 	PassHash string `json:"passHash" binding:"required"`
 	PubKey   string `json:"pubKey" binding:"required"`
 	PrivKey  string `json:"privKey" binding:"required"`
-	Data     string `json:"data" binding:"required"` // TODO: Add limit to it's size, else someone will fill it with really large junk data & slow down DB
 }
 
 // w'll change it later (maybee..)

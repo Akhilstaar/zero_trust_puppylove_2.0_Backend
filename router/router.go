@@ -33,6 +33,13 @@ func PuppyRoute(r *gin.Engine, db db.PuppyDb) {
 		users.GET("/activeusers/stage2", controllers.GetStage2ActiveUsers)
 		users.GET("/activeusers/stage3", controllers.GetStage3ActiveUsers)
 		users.GET("/fetchPublicKeys", controllers.FetchPublicKeys)
+		users.GET("/fetchStage1Keys", controllers.FetchStage1Keys)
+
+		users.POST("/sendheart/stage1", controllers.SendHeart_Stage1)
+		users.POST("/sendheart/stage2", controllers.SendHeart_Stage2)
+		users.POST("/sendheartvirtual/stage1", controllers.SendHeartVirtual_Stage1)
+		users.POST("/sendheartvirtual/stage2", controllers.SendHeartVirtual_Stage2)
+		// users.POST("/sendheart/stage3", controllers.SendHeart_Stage3)
 
 		// users.GET("/fetchall", controllers.FetchHearts)
 	}

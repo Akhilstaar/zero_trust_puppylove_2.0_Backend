@@ -55,9 +55,11 @@ func UserLogin(c *gin.Context) {
 
 	http.SetCookie(c.Writer, cookie)
 	c.JSON(http.StatusOK, gin.H{"message": "User logged in successfully !!",
+		"Id":         loginmodel.Id,
 		"pubKey":     loginmodel.PubK,
 		"pvtKey_Enc": loginmodel.PrivK,
-		"data":       loginmodel.Data,
+		"s1data":     loginmodel.S1Data,
+		"s2data":     loginmodel.S2Data,
 		"s1submit":   loginmodel.S1submit,
 		"s2submit":   loginmodel.S2submit,
 		"certgiven":  loginmodel.Certgiven,

@@ -27,7 +27,7 @@ func SendMail(name string, to string, authCode string) error {
 	mimeHeaders := "MIME-version: 1.0;\nContent-Type: text/html; charset=\"UTF-8\";\n\n"
 	body.Write([]byte(fmt.Sprintf("From:PClub IITK <pclubiitk@gmail.com>\nSubject: Zero-trust Puppy Love Authentication Code \n%s\n\n", mimeHeaders)))
 
-	mailTemplate := fmt.Sprintf("<html><style>.container{font-size: large;}body{font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;}code{padding: 6px;background-color: antiquewhite;border-radius: 5px;}</style><body><div class='container'>Hello %s,\n\nThis is your authentication code for Zero-trust-PuppyLove.\n\n <code>%s</code> \n\n .</div></body></html>", name, authCode)
+	mailTemplate := fmt.Sprintf("<html><style>.container{font-size: large;}body{font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;}code{padding: 6px;background-color: antiquewhite;border-radius: 5px;}</style><body><div class='container'>Hello %s,<br><br>This is your authentication code for Zero-trust-PuppyLove.<br><code>%s</code> <br><br>Thank you!</div></body></html>", name, authCode)
 	body.Write([]byte(mailTemplate))
 
 	// Sending email

@@ -75,7 +75,8 @@ func AddNewUser(c *gin.Context) {
 			PubK:      "",
 			PrivK:     "",
 			AuthC:     utils.RandStringRunes(15),
-			Data:      "",
+			S1Data:    "",
+			S2Data:    "",
 			S1submit:  false,
 			S2submit:  false,
 			Dirty:     false,
@@ -104,9 +105,9 @@ func DeleteUser(c *gin.Context) {
 	}
 
 	newUser := models.User{
-		Id:     info.Id,
-		Name:   info.Name,
-		Email:  info.Email,
+		Id:    info.Id,
+		Name:  info.Name,
+		Email: info.Email,
 	}
 
 	if err := Db.Unscoped().Delete(&newUser).Error; err != nil {
