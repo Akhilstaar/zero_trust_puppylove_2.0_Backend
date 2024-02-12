@@ -302,10 +302,6 @@ func SendHeart_Stage2(c *gin.Context) {
 				Kd2:    info.Kd2,
 				Kd3:    info.Kd3,
 				Kd4:    info.Kd4,
-				CertA:  info.CertA,
-				CertB:  info.CertB,
-				CertC:  info.CertC,
-				CertD:  info.CertD,
 				Submit: true,
 			}
 
@@ -338,10 +334,6 @@ func SendHeart_Stage2(c *gin.Context) {
 		existingHeart.Kd2 = info.Kd2
 		existingHeart.Kd3 = info.Kd3
 		existingHeart.Kd4 = info.Kd4
-		existingHeart.CertA = info.CertA
-		existingHeart.CertB = info.CertB
-		existingHeart.CertC = info.CertC
-		existingHeart.CertD = info.CertD
 		existingHeart.Submit = true
 
 		if err := tx.Save(&existingHeart).Error; err != nil {
@@ -421,10 +413,6 @@ func SendHeartVirtual_Stage2(c *gin.Context) {
 				Kd2:    info.Kd2,
 				Kd3:    info.Kd3,
 				Kd4:    info.Kd4,
-				CertA:  info.CertA,
-				CertB:  info.CertB,
-				CertC:  info.CertC,
-				CertD:  info.CertD,
 				Submit: false,
 			}
 
@@ -457,10 +445,6 @@ func SendHeartVirtual_Stage2(c *gin.Context) {
 		existingHeart.Kd2 = info.Kd2
 		existingHeart.Kd3 = info.Kd3
 		existingHeart.Kd4 = info.Kd4
-		existingHeart.CertA = info.CertA
-		existingHeart.CertB = info.CertB
-		existingHeart.CertC = info.CertC
-		existingHeart.CertD = info.CertD
 
 		if err := tx.Save(&existingHeart).Error; err != nil {
 			tx.Rollback()
@@ -482,8 +466,7 @@ func SendHeartVirtual_Stage2(c *gin.Context) {
 	c.JSON(http.StatusAccepted, gin.H{"message": "Hearts Sent Successfully !!"})
 }
 
-
-func Send_Cert(c *gin.Context){
+func Send_Cert(c *gin.Context) {
 	// User already authenticated in router.go by gin.HandlerFunc
 	// TODO: ADD a permit variable to control the api call output ie. accept or reject
 	info := new(models.Share_Cert)
@@ -505,7 +488,7 @@ func Send_Cert(c *gin.Context){
 	}
 
 	newCert := models.Stage3{
-		Id: userID.(string),
+		Id:  userID.(string),
 		Sk1: info.CertAs,
 		Sk2: info.CertBs,
 		Sk3: info.CertCs,
@@ -517,7 +500,12 @@ func Send_Cert(c *gin.Context){
 		return
 	}
 
-	if err := record.Updates(models.User{
+	if err := Db.Model(&user).Where("id = ?", userID).First(&user).Error; err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Something went wrong, Please try again."})
+		return
+	}
+
+	if err := Db.Model(&user).Updates(models.User{
 		Certgiven: true,
 	}).Error; err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Something went wrong, Please try again."})
@@ -592,11 +580,31 @@ func FetchPublicKeys(c *gin.Context) {
 }
 
 func FetchStage1Keys(c *gin.Context) {
-	var publicKeys []models.UserPublicKey
-	fetchPublicKey := Db.Model(&models.User{}).Select("id, pub_k").Find(&publicKeys)
-	if fetchPublicKey.Error != nil {
+	var stage1Keys []models.Fetch_Stage1
+	fetchStage1Keys := Db.Model(&models.Stage1{}).Select("id, m1, m2, m3, m4").Where("submit = ?", true).Find(&stage1Keys)
+	if fetchStage1Keys.Error != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Some Error Occurred"})
 		return
 	}
-	c.JSON(http.StatusOK, publicKeys)
+	c.JSON(http.StatusOK, stage1Keys)
+}
+
+func FetchStage2Keys(c *gin.Context) {
+	var stage2Keys []models.Fetch_Stage2
+	fetchStage2Keys := Db.Model(&models.Stage2{}).Select("id, Ka1, Ka2, Ka3, Ka4, Kb1, Kb2, Kb3, Kb4, Kc1, Kc2, Kc3, Kc4, Kd1, Kd2, Kd3, Kd4").Where("submit = ?", true).Find(&stage2Keys)
+	if fetchStage2Keys.Error != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Some Error Occurred"})
+		return
+	}
+	c.JSON(http.StatusOK, stage2Keys)
+}
+
+func FetchCerts(c *gin.Context) {
+	var stage2Keys []models.Fetch_Cert
+	fetchStage2Keys := Db.Model(&models.Stage3{}).Select("id, sk1, sk2, sk3, sk4").Where("submit = ?", true).Find(&stage2Keys)
+	if fetchStage2Keys.Error != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Some Error Occurred"})
+		return
+	}
+	c.JSON(http.StatusOK, stage2Keys)
 }

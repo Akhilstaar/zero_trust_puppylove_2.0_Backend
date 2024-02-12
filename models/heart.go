@@ -93,3 +93,43 @@ type Share_Cert struct {
 	CertCs string `json:"CertCs" bson:"CertCs" gorm:"unique"`
 	CertDs string `json:"CertDs" bson:"CertDs" gorm:"unique"`
 }
+
+type Fetch_Stage1 struct {
+	Id string `json:"id" bson:"id" gorm:"unique"`
+	M1 string `json:"m1" bson:"m1" gorm:"unique"`
+	M2 string `json:"m2" bson:"m2" gorm:"unique"`
+	M3 string `json:"m3" bson:"m3" gorm:"unique"`
+	M4 string `json:"m4" bson:"m4" gorm:"unique"`
+}
+
+type Fetch_Stage2 struct {
+	Id    string `json:"id" bson:"id" gorm:"unique"`
+	Ka1   string `json:"Ka1" bson:"Ka1" gorm:"unique"`
+	Ka2   string `json:"Ka2" bson:"Ka2" gorm:"unique"`
+	Ka3   string `json:"Ka3" bson:"Ka3" gorm:"unique"`
+	Ka4   string `json:"Ka4" bson:"Ka4" gorm:"unique"`
+	Kb1   string `json:"Kb1" bson:"Kb1" gorm:"unique"`
+	Kb2   string `json:"Kb2" bson:"Kb2" gorm:"unique"`
+	Kb3   string `json:"Kb3" bson:"Kb3" gorm:"unique"`
+	Kb4   string `json:"Kb4" bson:"Kb4" gorm:"unique"`
+	Kc1   string `json:"Kc1" bson:"Kc1" gorm:"unique"`
+	Kc2   string `json:"Kc2" bson:"Kc2" gorm:"unique"`
+	Kc3   string `json:"Kc3" bson:"Kc3" gorm:"unique"`
+	Kc4   string `json:"Kc4" bson:"Kc4" gorm:"unique"`
+	Kd1   string `json:"Kd1" bson:"Kd1" gorm:"unique"`
+	Kd2   string `json:"Kd2" bson:"Kd2" gorm:"unique"`
+	Kd3   string `json:"Kd3" bson:"Kd3" gorm:"unique"`
+	Kd4   string `json:"Kd4" bson:"Kd4" gorm:"unique"`
+	CertA string `json:"CertA" bson:"CertA" gorm:"unique"`
+	CertB string `json:"CertB" bson:"CertB" gorm:"unique"`
+	CertC string `json:"CertC" bson:"CertC" gorm:"unique"`
+	CertD string `json:"CertD" bson:"CertD" gorm:"unique"`
+}
+
+type Fetch_Cert struct {
+	Id  string `json:"id" bson:"id"`
+	Sk1 string `json:"sk1" bson:"sk1"`
+	Sk2 string `json:"sk2" bson:"sk2"`
+	Sk3 string `json:"sk3" bson:"sk3"`
+	Sk4 string `json:"sk4" bson:"sk4"`
+}

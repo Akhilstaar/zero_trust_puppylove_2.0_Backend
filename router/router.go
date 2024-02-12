@@ -3,9 +3,9 @@ package router
 import (
 	"net/http"
 
-	"github.com/gin-gonic/gin"
 	"github.com/Akhilstaar/zero_trust_puppylove_2.0_Backend/controllers"
 	"github.com/Akhilstaar/zero_trust_puppylove_2.0_Backend/db"
+	"github.com/gin-gonic/gin"
 )
 
 func PuppyRoute(r *gin.Engine, db db.PuppyDb) {
@@ -32,8 +32,10 @@ func PuppyRoute(r *gin.Engine, db db.PuppyDb) {
 		users.GET("/activeusers/stage1", controllers.GetStage1ActiveUsers)
 		users.GET("/activeusers/stage2", controllers.GetStage2ActiveUsers)
 		users.GET("/activeusers/stage3", controllers.GetStage3ActiveUsers)
-		// users.GET("/fetchPublicKeys", controllers.FetchPublicKeys)
-		// users.GET("/fetchStage1Keys", controllers.FetchStage1Keys)
+		users.GET("/fetchPublicKeys", controllers.FetchPublicKeys)
+		users.GET("/fetchStage1Keys", controllers.FetchStage1Keys)
+		users.GET("/fetchStage2Keys", controllers.FetchStage2Keys)
+		users.GET("/fetchCerts", controllers.FetchCerts)
 
 		users.POST("/sendheart/stage1", controllers.SendHeart_Stage1)
 		users.POST("/sendheart/stage2", controllers.SendHeart_Stage2)
