@@ -8,10 +8,10 @@ type (
 	Stage1 struct {
 		gorm.Model
 		Id     string `json:"id" bson:"id" gorm:"unique"`
-		M1     string `json:"m1" bson:"m1" gorm:"unique"`
-		M2     string `json:"m2" bson:"m2" gorm:"unique"`
-		M3     string `json:"m3" bson:"m3" gorm:"unique"`
-		M4     string `json:"m4" bson:"m4" gorm:"unique"`
+		M1     string `json:"m1" bson:"m1"`
+		M2     string `json:"m2" bson:"m2"`
+		M3     string `json:"m3" bson:"m3"`
+		M4     string `json:"m4" bson:"m4"`
 		Submit bool   `json:"submit" bson:"submit"`
 	}
 )
