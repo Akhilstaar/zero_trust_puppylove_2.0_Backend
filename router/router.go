@@ -35,13 +35,13 @@ func PuppyRoute(r *gin.Engine, db db.PuppyDb) {
 		users.GET("/fetchPublicKeys", controllers.FetchPublicKeys)
 		users.GET("/fetchStage1Keys", controllers.FetchStage1Keys)
 		users.GET("/fetchStage2Keys", controllers.FetchStage2Keys)
-		users.GET("/fetchCerts", controllers.FetchCerts)
+		// users.GET("/fetchCerts", controllers.FetchCerts)
 
 		users.POST("/sendheart/stage1", controllers.SendHeart_Stage1)
 		users.POST("/sendheart/stage2", controllers.SendHeart_Stage2)
 		users.POST("/sendheartvirtual/stage1", controllers.SendHeartVirtual_Stage1)
 		users.POST("/sendheartvirtual/stage2", controllers.SendHeartVirtual_Stage2)
-		users.POST("/sendcert", controllers.Send_Cert)
+		// users.POST("/sendcert", controllers.Send_Cert)
 
 		// users.GET("/fetchall", controllers.FetchHearts)
 	}

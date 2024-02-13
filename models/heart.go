@@ -64,27 +64,27 @@ type Stage1_Hearts struct {
 }
 
 type Stage2_Hearts struct {
-	Ka1    string `json:"Ka1" bson:"Ka1" gorm:"unique"`
-	Ka2    string `json:"Ka2" bson:"Ka2" gorm:"unique"`
-	Ka3    string `json:"Ka3" bson:"Ka3" gorm:"unique"`
-	Ka4    string `json:"Ka4" bson:"Ka4" gorm:"unique"`
-	Kb1    string `json:"Kb1" bson:"Kb1" gorm:"unique"`
-	Kb2    string `json:"Kb2" bson:"Kb2" gorm:"unique"`
-	Kb3    string `json:"Kb3" bson:"Kb3" gorm:"unique"`
-	Kb4    string `json:"Kb4" bson:"Kb4" gorm:"unique"`
-	Kc1    string `json:"Kc1" bson:"Kc1" gorm:"unique"`
-	Kc2    string `json:"Kc2" bson:"Kc2" gorm:"unique"`
-	Kc3    string `json:"Kc3" bson:"Kc3" gorm:"unique"`
-	Kc4    string `json:"Kc4" bson:"Kc4" gorm:"unique"`
-	Kd1    string `json:"Kd1" bson:"Kd1" gorm:"unique"`
-	Kd2    string `json:"Kd2" bson:"Kd2" gorm:"unique"`
-	Kd3    string `json:"Kd3" bson:"Kd3" gorm:"unique"`
-	Kd4    string `json:"Kd4" bson:"Kd4" gorm:"unique"`
-	CertA  string `json:"CertA" bson:"CertA" gorm:"unique"`
-	CertB  string `json:"CertB" bson:"CertB" gorm:"unique"`
-	CertC  string `json:"CertC" bson:"CertC" gorm:"unique"`
-	CertD  string `json:"CertD" bson:"CertD" gorm:"unique"`
-	S2Data string `json:"S2Data" bson:"S2Data" gorm:"unique"`
+	Ka1    string `json:"Ka1" bson:"Ka1"`
+	Ka2    string `json:"Ka2" bson:"Ka2"`
+	Ka3    string `json:"Ka3" bson:"Ka3"`
+	Ka4    string `json:"Ka4" bson:"Ka4"`
+	Kb1    string `json:"Kb1" bson:"Kb1"`
+	Kb2    string `json:"Kb2" bson:"Kb2"`
+	Kb3    string `json:"Kb3" bson:"Kb3"`
+	Kb4    string `json:"Kb4" bson:"Kb4"`
+	Kc1    string `json:"Kc1" bson:"Kc1"`
+	Kc2    string `json:"Kc2" bson:"Kc2"`
+	Kc3    string `json:"Kc3" bson:"Kc3"`
+	Kc4    string `json:"Kc4" bson:"Kc4"`
+	Kd1    string `json:"Kd1" bson:"Kd1"`
+	Kd2    string `json:"Kd2" bson:"Kd2"`
+	Kd3    string `json:"Kd3" bson:"Kd3"`
+	Kd4    string `json:"Kd4" bson:"Kd4"`
+	CertA  string `json:"CertA" bson:"CertA"`
+	CertB  string `json:"CertB" bson:"CertB"`
+	CertC  string `json:"CertC" bson:"CertC"`
+	CertD  string `json:"CertD" bson:"CertD"`
+	S2Data string `json:"S2Data" bson:"S2Data"`
 }
 
 type Share_Cert struct {
@@ -104,26 +104,26 @@ type Fetch_Stage1 struct {
 
 type Fetch_Stage2 struct {
 	Id    string `json:"id" bson:"id" gorm:"unique"`
-	Ka1   string `json:"Ka1" bson:"Ka1" gorm:"unique"`
-	Ka2   string `json:"Ka2" bson:"Ka2" gorm:"unique"`
-	Ka3   string `json:"Ka3" bson:"Ka3" gorm:"unique"`
-	Ka4   string `json:"Ka4" bson:"Ka4" gorm:"unique"`
-	Kb1   string `json:"Kb1" bson:"Kb1" gorm:"unique"`
-	Kb2   string `json:"Kb2" bson:"Kb2" gorm:"unique"`
-	Kb3   string `json:"Kb3" bson:"Kb3" gorm:"unique"`
-	Kb4   string `json:"Kb4" bson:"Kb4" gorm:"unique"`
-	Kc1   string `json:"Kc1" bson:"Kc1" gorm:"unique"`
-	Kc2   string `json:"Kc2" bson:"Kc2" gorm:"unique"`
-	Kc3   string `json:"Kc3" bson:"Kc3" gorm:"unique"`
-	Kc4   string `json:"Kc4" bson:"Kc4" gorm:"unique"`
-	Kd1   string `json:"Kd1" bson:"Kd1" gorm:"unique"`
-	Kd2   string `json:"Kd2" bson:"Kd2" gorm:"unique"`
-	Kd3   string `json:"Kd3" bson:"Kd3" gorm:"unique"`
-	Kd4   string `json:"Kd4" bson:"Kd4" gorm:"unique"`
-	CertA string `json:"CertA" bson:"CertA" gorm:"unique"`
-	CertB string `json:"CertB" bson:"CertB" gorm:"unique"`
-	CertC string `json:"CertC" bson:"CertC" gorm:"unique"`
-	CertD string `json:"CertD" bson:"CertD" gorm:"unique"`
+	Ka1   string `json:"Ka1" bson:"Ka1"`
+	Ka2   string `json:"Ka2" bson:"Ka2"`
+	Ka3   string `json:"Ka3" bson:"Ka3"`
+	Ka4   string `json:"Ka4" bson:"Ka4"`
+	Kb1   string `json:"Kb1" bson:"Kb1"`
+	Kb2   string `json:"Kb2" bson:"Kb2"`
+	Kb3   string `json:"Kb3" bson:"Kb3"`
+	Kb4   string `json:"Kb4" bson:"Kb4"`
+	Kc1   string `json:"Kc1" bson:"Kc1"`
+	Kc2   string `json:"Kc2" bson:"Kc2"`
+	Kc3   string `json:"Kc3" bson:"Kc3"`
+	Kc4   string `json:"Kc4" bson:"Kc4"`
+	Kd1   string `json:"Kd1" bson:"Kd1"`
+	Kd2   string `json:"Kd2" bson:"Kd2"`
+	Kd3   string `json:"Kd3" bson:"Kd3"`
+	Kd4   string `json:"Kd4" bson:"Kd4"`
+	CertA string `json:"CertA" bson:"CertA"`
+	CertB string `json:"CertB" bson:"CertB"`
+	CertC string `json:"CertC" bson:"CertC"`
+	CertD string `json:"CertD" bson:"CertD"`
 }
 
 type Fetch_Cert struct {
